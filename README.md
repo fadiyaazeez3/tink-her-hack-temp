@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# WALKGUARD 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: LEAD
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Fadiya Azeez - Bharata Mata College, Thrikkakara
+- Member 2: Aiswarya Asokan - Bharata Mata College, Thrikkakara
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+This project is a mobile safety application that allows users to send instant SOS alerts with their live location to saved emergency contacts. It also includes a background tracking feature that can share real-time location updates for added safety. The app is designed as a quick-response personal security tool, especially useful in emergency or unsafe situations.
 
 ### The Problem statement
-[What problem are you solving?]
+Many people, especially women and individuals traveling alone, face unsafe situations where they cannot quickly contact help. Existing emergency solutions are slow, complicated, or require multiple steps during panic situations. There is a need for a fast, simple, and reliable emergency alert system that instantly shares location and distress signals.
 
 ### The Solution
-[How are you solving it?]
+This app provides a one-tap SOS system that immediately sends emergency messages with live GPS location to saved contacts. It also includes a background tracking mode that continuously monitors location for safety monitoring. The solution is designed to work quickly, require minimal interaction, and function even when the user cannot manually type or call.
 
 ---
 
@@ -31,25 +31,24 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: JavaScript
+- Frameworks used: React Native, Expo
+- Libraries used: expo-location → GPS access, expo-sms → SMS sending,expo-task-manager → background tracking, AsyncStorage → local data storage
+- Tools used: VS Code (code editor), Node.js (runtime), Expo CLI (app runner), Git (version control)
 
 **For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components: Android smartphone
+- Specifications: GPS enabled device, SMS capability
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: SOS Emergency Button (Sends instant emergency SMS with live location).
+- Feature 2: Contact Storage (Saves emergency numbers locally using AsyncStorage).
+- Feature 3: Background Tracking Mode (Tracks user location continuously for safety monitoring).
+- Feature 4: Real-time Location Link (Sends clickable Google Maps link in SOS message).
 
 ---
 
@@ -59,21 +58,27 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+npm install
+npx expo install expo-location expo-sms expo-task-manager @react-native-async-storage/async-storage
 ```
 
 #### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+npx expo start
 ```
+Then press:
+w → run on web
+Scan QR → run on real phone
 
 ### For Hardware:
 
 #### Components Required
-[List all components needed with specifications]
+Android phone
+Internet connection
+Location Access
 
 #### Circuit Setup
-[Explain how to set up the circuit]
+Not applicable — this is a pure software mobile application.
 
 ---
 
@@ -83,104 +88,132 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1900" height="862" alt="image 1" src="https://github.com/user-attachments/assets/8d3d187d-5aab-4f9c-a45c-5e809ce93d7f" />
+Caption: Main screen showing SOS button and Start Tracking button. This is the core interface used during emergencies.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="758" height="1600" alt="image 2" src="https://github.com/user-attachments/assets/1c634d09-f9a9-445d-a1a9-5a73fae96a5f" />
+Caption: Screen where users add and manage emergency contact numbers stored locally in the device.
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="785" height="1600" alt="image 3" src="https://github.com/user-attachments/assets/d949fc73-57c5-4d9a-8afa-245acd5b4182" />
+Caption: Alert confirmation displayed when SOS is triggered, indicating message is being sent to saved contacts.
 
 #### Diagrams
 
 **System Architecture:**
+<img width="794" height="944" alt="System_Architecture_Emergency_App" src="https://github.com/user-attachments/assets/364eeeeb-8138-4578-87c1-86ee4a6e09db" />
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+Explanation:
 
+The system follows a client-side architecture:
+  User interacts with React Native UI
+  SOS button triggers logic handler
+  App retrieves contacts from AsyncStorage
+  GPS location fetched via expo-location
+  SMS sent through expo-sms API
+  Background tracking handled by expo-task-manager
+
+Data Flow:
+  User → UI Button → Logic Handler → Location API → SMS API → Emergency Contact
+  
 **Application Workflow:**
 
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
++--------+
+|  User  |
++--------+
+     |
+     v
++----------------+
+|  UI Button     |
+| (Emergency Tap)|
++----------------+
+     |
+     v
++----------------+
+|  Logic Handler |
+| (App Brain)    |
++----------------+
+     |
+     v
++----------------+
+|  Location API  |
+| (Get GPS Data) |
++----------------+
+     |
+     v
++----------------+
+|    SMS API     |
+| (Send Alert)   |
++----------------+
+     |
+     v
++---------------------+
+|  Emergency Contact  |
+| (Receives Message)  |
++---------------------+
+Workflow Explanation:
+
+  User opens app
+  Saves emergency contacts
+  Presses SOS button or enables tracking
+  App fetches live GPS location
+  App sends SMS with coordinates
+  Contact receives alert with map link
 
 ---
 
 ### For Hardware:
-
+(This project is software-based and does not require physical hardware components.)
 #### Schematic & Circuit
 
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
+Not applicable — no circuit used.
 
 ![Schematic](Add your schematic diagram here)
 *Add caption explaining the schematic*
 
 #### Build Photos
 
-![Team](Add photo of your team here)
+<img width="1460" height="993" alt="TeamPhoto" src="https://github.com/user-attachments/assets/71ced016-5533-4e3e-bf3a-8ee81040588d" />
 
-![Components](Add photo of your components here)
-*List out all components shown*
+Components:
+  No physical components used.
+  Software stack components:
+  React Native
+  Expo SDK
+  AsyncStorage
+  Location API
+  SMS API
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+Build:
 
-![Final](Add photo of final product here)
-*Explain the final build*
+  Build process is software compilation and packaging using:
+  Node.js runtime
+  Expo bundler
+  Android SDK
+
+Final Product:
+  Final output is a working mobile safety application that runs on Android devices and allows emergency SOS alerts and background location tracking.
 
 ---
 
 ## Additional Documentation
-
-### For Web Projects with Backend:
-
-#### API Documentation
-
-**Base URL:** `https://api.yourproject.com`
-
-##### Endpoints
-
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
-{
-  "status": "success",
-  "data": {}
-}
-```
-
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-- **Response:**
-```json
-{
-  "status": "success",
-  "message": "Operation completed"
-}
-```
-
-[Add more endpoints as needed...]
-
----
 
 ### For Mobile Apps:
 
 #### App Flow Diagram
 
 ![App Flow](docs/app-flow.png)
-*Explain the user flow through your application*
+User Flow Explanation:
+
+  User opens app
+  User saves emergency contacts
+  User chooses action:
+  Press SOS button → sends emergency SMS with live location
+  Press Start Tracking → enables background location monitorin
+  App fetches GPS coordinates
+  App sends location link to saved contacts
+  Emergency contact receives alert message
+
+The workflow is designed to minimize steps during panic situations, ensuring fast emergency communication.
 
 #### Installation Guide
 
@@ -215,149 +248,6 @@ xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
 
 ---
 
-### For Hardware Projects:
-
-#### Bill of Materials (BOM)
-
-| Component | Quantity | Specifications | Price | Link/Source |
-|-----------|----------|----------------|-------|-------------|
-| Arduino Uno | 1 | ATmega328P, 16MHz | ₹450 | [Link] |
-| LED | 5 | Red, 5mm, 20mA | ₹5 each | [Link] |
-| Resistor | 5 | 220Ω, 1/4W | ₹1 each | [Link] |
-| Breadboard | 1 | 830 points | ₹100 | [Link] |
-| Jumper Wires | 20 | Male-to-Male | ₹50 | [Link] |
-| [Add more...] | | | | |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
-![Step 1](images/assembly-step1.jpg)
-*Caption: All components laid out*
-
-**Step 2: Build the Power Supply**
-1. Connect the power rails on the breadboard
-2. Connect Arduino 5V to breadboard positive rail
-3. Connect Arduino GND to breadboard negative rail
-![Step 2](images/assembly-step2.jpg)
-*Caption: Power connections completed*
-
-**Step 3: Add Components**
-1. Place LEDs on breadboard
-2. Connect resistors in series with LEDs
-3. Connect LED cathodes to GND
-4. Connect LED anodes to Arduino digital pins (2-6)
-![Step 3](images/assembly-step3.jpg)
-*Caption: LED circuit assembled*
-
-**Step 4: [Continue for all steps...]**
-
-**Final Assembly:**
-![Final Build](images/final-build.jpg)
-*Caption: Completed project ready for testing*
-
----
-
-### For Scripts/CLI Tools:
-
-#### Command Reference
-
-**Basic Usage:**
-```bash
-python script.py [options] [arguments]
-```
-
-**Available Commands:**
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
-
-**Options:**
-- `-h, --help` - Show help message and exit
-- `-v, --verbose` - Enable verbose output
-- `-o, --output FILE` - Specify output file path
-- `-c, --config FILE` - Specify configuration file
-- `--version` - Show version information
-
-**Examples:**
-
-```bash
-# Example 1: Basic usage
-python script.py input.txt
-
-# Example 2: With verbose output
-python script.py -v input.txt
-
-# Example 3: Specify output file
-python script.py -o output.txt input.txt
-
-# Example 4: Using configuration
-python script.py -c config.json --verbose input.txt
-```
-
-#### Demo Output
-
-**Example 1: Basic Processing**
-
-**Input:**
-```
-This is a sample input file
-with multiple lines of text
-for demonstration purposes
-```
-
-**Command:**
-```bash
-python script.py sample.txt
-```
-
-**Output:**
-```
-Processing: sample.txt
-Lines processed: 3
-Characters counted: 86
-Status: Success
-Output saved to: output.txt
-```
-
-**Example 2: Advanced Usage**
-
-**Input:**
-```json
-{
-  "name": "test",
-  "value": 123
-}
-```
-
-**Command:**
-```bash
-python script.py -v --format json data.json
-```
-
-**Output:**
-```
-[VERBOSE] Loading configuration...
-[VERBOSE] Parsing JSON input...
-[VERBOSE] Processing data...
-{
-  "status": "success",
-  "processed": true,
-  "result": {
-    "name": "test",
-    "value": 123,
-    "timestamp": "2024-02-07T10:30:00"
-  }
-}
-[VERBOSE] Operation completed in 0.23s
-```
-
----
-
 ## Project Demo
 
 ### Video
@@ -372,9 +262,8 @@ python script.py -v --format json data.json
 
 ## AI Tools Used (Optional - For Transparency Bonus)
 
-If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** [e.g., Gemini, ChatGPT, Claude]
 
 **Purpose:** [What you used it for]
 - Example: "Generated boilerplate React components"
